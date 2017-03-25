@@ -22,15 +22,26 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="agro-trade-core" />
+        <module name="agro-trade-view" />
         <module name="GivoRostCore" />
-        <module name="GivoRostRest" />
         <module name="GivoRostView" />
+      </profile>
+      <profile default="false" name="Annotation profile for GivoRostRest" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="GivoRostRest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="agro-trade" target="1.5" />
+      <module name="agro-trade-core" target="1.5" />
+      <module name="agro-trade-rest" target="1.8" />
+      <module name="agro-trade-view" target="1.5" />
       <module name="GivoRostCore" target="1.5" />
-      <module name="GivoRostRest" target="1.5" />
+      <module name="GivoRostRest" target="1.8" />
       <module name="GivoRostView" target="1.5" />
     </bytecodeTargetLevel>
   </component>

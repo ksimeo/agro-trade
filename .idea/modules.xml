@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/agro-trade-core/GivoRostCore.iml" filepath="$PROJECT_DIR$/agro-trade-core/GivoRostCore.iml" />
-      <module fileurl="file://$PROJECT_DIR$/agro-trade-rest/GivoRostRest.iml" filepath="$PROJECT_DIR$/agro-trade-rest/GivoRostRest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/agro-trade-view/GivoRostView.iml" filepath="$PROJECT_DIR$/agro-trade-view/GivoRostView.iml" />
       <module fileurl="file://$PROJECT_DIR$/agro-trade.iml" filepath="$PROJECT_DIR$/agro-trade.iml" />
+      <module fileurl="file://$PROJECT_DIR$/agro-trade-core/agro-trade-core.iml" filepath="$PROJECT_DIR$/agro-trade-core/agro-trade-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/agro-trade-rest/agro-trade-rest.iml" filepath="$PROJECT_DIR$/agro-trade-rest/agro-trade-rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/agro-trade-view/agro-trade-view.iml" filepath="$PROJECT_DIR$/agro-trade-view/agro-trade-view.iml" />
     </modules>
   </component>
 </project>
