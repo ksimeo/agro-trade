@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<h:head lang="ru">
+    <title>Заказ выполнен - ЖивоРост</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <link rel="shortcut icon" href="../img/worms.ico" type="image/x-ico"/>
+</h:head>
+<h:body onload="onLoad()">
+    <script type="text/javascript">
+        <!--//<![CDATA[
+        var defaultValue;
+        function onLoad() {
+            var p_url=location.search.substring(1);
+            document.getElementById('number').value=p_url;
+        }
+        //]]>-->
+    </script>
+    <h:form>
+        <div style="width: 100%; text-align: -webkit-center; margin-top: 200; color: #d4ebda;" align="center">
+            <table align="center">
+                <tr>
+                    <td>
+                        <h3>Для оформления вашего заказа заполните <br/> поля ниже и кликните "Заказать" </h3>
+                        <!--<br/>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Ваше имя: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <h:inputText id="name" name="name" value="#{addOrderBean.name}"/> </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Ваш контактный номер телефона: &nbsp; <h:inputText id="tel" name="tel" value="#{addOrderBean.tel}" size="9" requiredMessage="true"/>*</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Ваш электронный адрес: &nbsp; <h:inputText type="email" name="address" value="#{addOrderBean.email}" size="19"/></h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Ваш регион: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <h:selectOneListbox size="1" id="region" value="#{addOrderBean.region}">
+                                <f:selectItems value="#{addOrderBean.regions}" var="region" itemValue="#{region.id}" itemLabel="#{region.name}"/>
+                            </h:selectOneListbox>*</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Укажите тип и количество биогумата, которое<br/>
+                            вам необходимо: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <h:selectOneListbox size="1" id="product_type" value="#{addOrderBean.product}">
+                                <f:selectItems value="#{addOrderBean.products}" var="product" itemValue="#{product.id}" itemLabel="#{product.name}"/>
+                            </h:selectOneListbox>
+                            <h:inputText size="6" value="#{addOrderBean.number}"/>* л
+                        </h4>
+                        <h5>* - Поля обязательные для заполнения</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4><h:commandButton id="w" value="Заказать"  action="#{addOrderBean.doOrder}"/>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <a href="agrocalc.xhtml"> Вернуться к рассчету количества</a></h4>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </h:form>
+</h:body>
+</html>

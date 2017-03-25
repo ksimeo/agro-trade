@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Сменить пароль - ЖивоРост</title>
+</h:head>
+<h:body>
+    <h:form>
+        <center>
+            <table>
+                <tr>
+                    <td>
+                        <br/>
+                        <h3>Для выполнения входа в систему <br/>
+                            введите &nbsp; ваш &nbsp; логин &nbsp; и &nbsp; пароль:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Прежний пароль: &nbsp;
+                            <h:inputSecret size="14" value="#{passwordBean.password}"/>
+                        </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Новый пароль: &nbsp;
+                            <h:inputSecret size="13" value="#{passwordBean.newPassword}"/>
+                        </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Еще раз новый пароль: &nbsp;
+                            <h:inputSecret size="13" value="#{passwordBean.confirmPassw}"/>
+                        </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>&nbsp;<h:commandButton value="Изменить" action="#{passwordBean.change}"/>
+
+
+                            &nbsp; &nbsp; &nbsp;<h:commandButton value="Изменить" action="#{passwordBean.cancel}"/>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;</h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4 style="color: red">
+                            <h:outputText value="#{loginBean.error}"/>
+                        </h4>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </h:form>
+</h:body>
+</html>

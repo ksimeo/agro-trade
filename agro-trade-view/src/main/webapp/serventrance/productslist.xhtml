@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://java.sun.com/jstl/functions">
+<h:head>
+    <title>Редактирование списка продукции - ЖивоРост</title>
+</h:head>
+<h:body>
+<h:form>
+    <center>
+        <h2>Виды продукции предлагаемые нами на данный момент:</h2>
+        <h:dataTable value="#{productsBean.products}" var="product" cellspacing="0" cellpadding="1" border="1">
+            <!--styleClass="orderTable"-->
+            <!--headerClass="orderTableHeader"-->
+            <!--rowClasses="orderRow">-->
+            <h:column>
+                <f:facet name="header">№</f:facet>
+                <h:outputText value="#{product.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Наименование</f:facet>
+                <h:outputText value="#{product.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Цена,<br/> грн. </f:facet>
+                <h:outputText value="#{product.price}"/>
+            </h:column>
+            <h:column>
+            <h:selectOneRadio valueChangeListener="#{productsBean.selectedProductListener}" onclick="">
+                <f:selectItem itemValue="null" />
+            </h:selectOneRadio>
+            </h:column>
+        </h:dataTable>
+        <h4>
+            <!--<a href="addnewproduct.xhtml">Добавить новый тип продукции</a>-->
+            <h:commandButton value="Добавить новый продукт" action="#{productsBean.added}"/>
+            &nbsp;
+            <h:commandButton value="Удалить" action="#{productsBean.delete}"/>
+            &nbsp;
+            <h:commandButton value="Редактировать" action="#{productsBean.modify}"/>
+            &nbsp;
+            <h:commandButton value="Отмена" action="#{productsBean.cancel}"/>
+        </h4>
+    </center>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Служебный вход - ЖивоРост</title>
+</h:head>
+<h:body>
+    <h:form>
+        <center>
+            <table>
+                <tr>
+                    <td>
+                        <br/>
+                        <!--<h3>Для выполнения входа в систему <br/>-->
+                        <!--введите &nbsp; ваш &nbsp; логин &nbsp; и &nbsp; пароль:</h3>-->
+                        <h3>Для выполнения входа в систему <br/>
+                        введите &nbsp; ваш &nbsp; логин &nbsp; и &nbsp; пароль:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Логин: &nbsp;
+                            <h:inputText size="14" value="#{loginBean.login}"/></h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Пароль: &nbsp;
+                            <h:inputSecret size="13" value="#{loginBean.password}"/></h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="../index.index.html">Перейти на главную</a>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;<h:commandButton value="Войти" action="#{loginBean.doEnter}"/></h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4 style="color: red">
+                            <h:outputText value="#{loginBean.error}"/>
+                        </h4>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </h:form>
+</h:body>
+</html>

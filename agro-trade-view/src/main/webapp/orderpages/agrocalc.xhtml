@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+    <title>Подсчет необходимого количества биогумата - ЖивоРост</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <!--<h:link rel="shortcut icon" href="img/favicon2.png" type="image/x-icon"/>-->
+    <link rel="shortcut icon" href="../img/worms.ico" type="image/x-ico"/>
+</h:head>
+<h:body>
+    <script type="text/javascript">
+        <!--//<![CDATA[
+        function changeText0() {
+            var res = 1;
+            var z = document.getElementsByName('agroculture');
+            for (var i = 0; i < z.length; i++){
+                if (document.getElementsByName('agroculture')[i].checked == true) {
+                    if(i == 0) res = 1.23;
+                    else if (i == 1) res = 2.84;
+                    else if (i == 2) res = 1.8;
+                    else if (i == 3) res = 0.7;
+                    else if (i == 4) res = 1.2;
+                    else if (i == 5) res = 2.4;
+                    else if (i == 6) res = 0.5;
+                }
+            }
+            if(res != 1){
+
+                var type = document.getElementById('spisok1').options[document.getElementById('spisok1').selectedIndex].value;
+                var razmern = document.getElementById('spisok2').options[document.getElementById('spisok2').selectedIndex].value;
+                var number = parseFloat(document.getElementById('number').value);
+
+                if(number > 0 && number!="NaN") {
+
+                    res *= number;
+                    res *= parseFloat(razmern);
+                    res *= parseFloat(type);
+                    res = Math.round(res);
+
+                    document.getElementById('result').innerHTML = '<h2><p style="color: #006942;">Вам понадобится ' + res + 'л биогумата </p></h2> <h2><p><a href="orderpages/ordering2.xhtml?'+ res +'">Оформить Ваш заказ</a></p></h2>';
+                }
+
+            } else {
+                document.getElementById('result').innerHTML = '<h2><p style="color: #b23435;"> Вы ввели не все данные! </p></h2>';
+            }
+        }
+        //]]>-->
+    </script>
+    <h:form>
+        <div  style="width: 100%; text-align: -webkit-center; margin-top: 200; color: #d4ebda;" align="center">
+            <table>
+                <tr>
+                    <td>
+                        <h3>Вы можете рассчитать количество биогумата, которое понадобится <br/> для ваших целей, для этого, просто, заполните форму ниже</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Выберите тип растительной культуры:</h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="agroculture" id="r1" value="r1" onchange="changeText0()">Зеленые культуры (петрушка, салат, укроп, шпинат и др.)</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="agroculture" id="r2" value="r2" onchange="changeText0()">Рассада томатов, огурцов и перца (рассада)</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="agroculture" id="r3" value="r3" onchange="changeText0()">Картофель</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="agroculture" value="r4" onchange="changeText0()">Клубника, Земляника </input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="agroculture" value="r5" onchange="changeText0()">Озимый чеснок</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="agroculture" value="r6" onchange="changeText0()">Кустарник (крыжовник, смородина и др.)</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="agroculture" value="r7" onchange="changeText0()">Плодовые деревья</input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br/>
+                        <b>Укажите конкретный тип биогумата и засаживаемую площадь:</b>
+                        <br/>
+                        <!--<label for="question">What's your sign?</label>-->
+                        <p>
+                        <select name="sign" id="producttype" onchange="changeText0()">
+                            <option value="1">Марка 1</option>
+                            <option value="2">Марка 2</option>
+                            <option value="3">Марка 3</option>
+                        </select>
+                        <h:inputText type="number" id="number" size="5" min="1" max="999999" onkeypress="changeText0()"/>
+                        <select id="spisok1" onchange="changeText0()">
+                            <option value="1">Га</option>
+                            <option value="100">Ар</option>
+                            <option value="10000">кв.м</option>
+                        </select>
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputText id="result"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+</h:form>
+</h:body>
+</html>

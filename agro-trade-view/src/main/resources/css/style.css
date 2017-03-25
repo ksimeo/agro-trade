@@ -1,0 +1,33 @@
+body {
+    background-image: url("/img/779185.jpeg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#plank1
+{
+    width: 1460px;
+    height: 77px;
+    text-align: -webkit-center;
+    margin: 0px auto;
+    margin-top: 60px;
+    background-color: #ededed;
+    border: 1px solid #aaacb2;
+    border-radius: 10px;
+    padding: 1px 15px 1px 15px;
+    font-family: sans-serif
+}
+
+#lang {
+
+}
+
+#number {
+    width: 6em;
+}
+
+#number::-webkit-inner-spin-button {
+    opacity: 1;
+}
+
+

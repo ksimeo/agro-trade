@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:a4j="http://java.sun.com/jstl/functions">
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h2>Voting</h2>
+    <h:form style="text-align: center">
+        <h:dataTable value="#{ordersListBean.orders}" var="order"
+                     styleClass="partyTable"
+                     headerClass="partyTableHeader"
+                     rowClasses="partyRow">
+            <h:column>
+                <f:facet name="header">№</f:facet>
+                <h:outputText value="#{order.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Время</f:facet>
+                <h:outputText value="#{order.date}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Регион</f:facet>
+                <h:outputText value="#{order.region}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Имя</f:facet>
+                <h:outputText value="#{order.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Телефон</f:facet>
+                <h:outputText value="#{order.tel}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Количество</f:facet>
+            </h:column>
+            <h:column>
+                <f:facet name="header"/>
+                <h:selectOneRadio onchange="#{ordersListBean.selectedOrderListener}" onclick="">
+                    <f:selectItem itemValue="null" />
+                </h:selectOneRadio>
+            </h:column>
+        </h:dataTable>
+        <h:commandButton value="Удалить"  action="#{ordersListBean.delete}" style="color: dodgerblue"/>
+    </h:form>
+</h:body>
+</html>

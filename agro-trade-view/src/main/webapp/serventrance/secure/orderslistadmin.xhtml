@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://java.sun.com/jstl/functions">
+<h:head>
+    <title>Страница администратора системы - ЖивоРост</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <h:form>
+    <center>
+        <div>
+            <h:commandButton value="Сменить пароль" action="#{ordersListBean.changePassword}"/>
+        </div>
+        <h2>Список заказов поступивших за последнее время:</h2>
+        <h:dataTable value="#{ordersListBean.orders}" var="order" cellspacing="0" cellpadding="1" border="1"
+            styleClass="orderTable"
+            headerClass="orderTableHeader"
+            rowClasses="orderRow">
+            <h:column>
+                <f:facet name="header">№</f:facet>
+                <h:outputText value="#{order.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Дата</f:facet>
+                <h:outputText value="#{order.date}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Имя</f:facet>
+                <h:outputText value="#{order.name}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Телефон</f:facet>
+                <h:outputText value="#{order.tel}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">e-mail</f:facet>
+                <h:outputText value="#{order.email}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Регион</f:facet>
+                <h:outputText value="#{order.region}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Тип продукта</f:facet>
+                <h:outputText value="#{order.productName}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Количество,<br/> л</f:facet>
+                <h:outputText value="#{order.number}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"/>
+                <h:selectOneRadio valueChangeListener="#{ordersListBean.selectedOrderListener}" id="radio1" name="r1" var="1" onclick="null">
+                    <f:selectItem itemValue="null"/>
+                </h:selectOneRadio>
+            </h:column>
+        </h:dataTable>
+        <h4>
+            <a href="../productslist.xhtml">Редактировать список предлагаемой продукции</a>
+            &nbsp; &nbsp;
+            <a href="../userslist.xhtml">Редактировать список пользователей системы</a>
+            &nbsp; &nbsp;
+            <h:commandButton value="Удалить" action="#{ordersListBean.delete}"/>
+        </h4>
+    </center>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="ru">
+    <meta charset="UTF-8">
+    <title>ЖивоРост Біогумат - Розрахунок необхоідної кількості продукту</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/style.css"/>
+    <link rel="shortcut icon" href="../img/worms.ico" type="image/x-icon"/>
+</head>
+<body>
+<script type="text/javascript">
+
+    function changeText0() {
+
+        var res = 1;
+        var z = document.getElementsByName('agroculture');
+        for (var i = 0; i < z.length; i++){
+            if (document.getElementsByName('agroculture')[i].checked == true) {
+                if(i == 0) res = 1.23;
+                else if (i == 1) res = 2.84;
+                else if (i == 2) res = 1.8;
+                else if (i == 3) res = 0.7;
+                else if (i == 4) res = 1.2;
+                else if (i == 5) res = 2.4;
+                else if (i == 6) res = 0.5;
+            }
+        }
+        if(res != 1){
+
+            var type = document.getElementById('spisok1').options[document.getElementById('spisok1').selectedIndex].value;
+            var razmern = document.getElementById('spisok2').options[document.getElementById('spisok2').selectedIndex].value;
+            var number = parseFloat(document.getElementById('number').value);
+
+            if(number > 0 && number!="NaN") {
+
+                res *= number;
+                res *= parseFloat(razmern);
+                res *= parseFloat(type);
+                res = Math.round(res);
+
+                document.getElementById('result').innerHTML = '<h2><p style="color: #006942;">Вам понадобится ' + res + 'л биогумата </p></h2> <h2><p><a href="../orderpages/ordering.jsp?'+ res +'">Оформить Ваш заказ</a></p></h2>';
+            }
+
+        } else {
+            document.getElementById('result').innerHTML = '<h2><p style="color: #b23435;"> Вы ввели не все данные! </p></h2>';
+        }
+    }
+</script>
+<form onsubmit="return false;" oninput="changeText0()">
+    <div style="width: 100%; text-align: -webkit-center; margin-top: 200; color: #d4ebda;" align="centre">
+        <table>
+            <tr>
+                <td>
+                    <p><h3>Вы можете рассчитать количество биогумата, которое понадобится <br> для ваших целей, для этого, просто, заполните форму ниже</h3></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><h4>Выберите тип растительной культуры:</h4></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="agroculture" id="r1" value="r1" onchange="changeText0()">Зеленые культуры (петрушка, салат, укроп, шпинат и др.)</input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="agroculture" id="r2" value="r2" onchange="changeText0()">Рассада томатов, огурцов и перца (рассада)</input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="agroculture" id="r3" value="r3" onchange="changeText0()">Картофель</input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="agroculture" value="r4" onchange="changeText0()">Клубника, Земляника </input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="agroculture" value="r5" onchange="changeText0()">Озимый чеснок</input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="agroculture" value="r6" onchange="changeText0()">Кустарник (крыжовник, смородина и др.)</input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" name="agroculture" value="r7" onchange="changeText0()">Плодовые деревья</input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><b>Укажите конкретный тип биогумата и засаживаемую площадь:</b>
+                        <br>
+                        <br>
+                        <select id="spisok2" onchange="changeText0()">
+                            <option value="1">Марка 1</option>
+                            <option value="2">Марка 2</option>
+                            <option value="3">Марка 3</option>
+                        </select>
+                        <input type="number" id="number" min="1" max="999999" required oninput="changeText0()">
+                        <select id="spisok1" onchange="changeText0()">
+                            <option value="1">Га</option>
+                            <option value="100">Ар</option>
+                            <option value="10000">кв.м</option>
+                        </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <output id="result"></output>
+                </td>
+            </tr>
+        </table>
+    </div>
+</form>
+</body>
+</html>

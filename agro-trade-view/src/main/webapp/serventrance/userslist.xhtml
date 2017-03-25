@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://java.sun.com/jstl/functions">
+<h:head>
+    <title>Редактирование списка пользователей системы - ЖивоРост</title>
+</h:head>
+<h:body>
+    <h:form>
+    <center>
+        <h2>Список пользователей системы:</h2>
+        <h:dataTable value="#{usersListBean.users}" var="user" cellspacing="0" cellpadding="1" border="1">
+            <!--styleClass="orderTable"-->
+            <!--headerClass="orderTableHeader"-->
+            <!--rowClasses="orderRow">-->
+            <h:column>
+                <f:facet name="header">№</f:facet>
+                <h:outputText value="#{user.id}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Логин</f:facet>
+                <h:outputText value="#{user.login}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Администратор</f:facet>
+                <h:outputText value="#{user.admin}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"/>
+                <h:selectOneRadio valueChangeListener="#{usersListBean.selectedUserListener}" onclick="">
+                    <f:selectItem itemValue="null" />
+                </h:selectOneRadio>
+            </h:column>
+        </h:dataTable>
+        <h4> &nbsp;
+            <h:commandButton value="Добавить" action="#{usersListBean.add}"/>
+            &nbsp;
+            <h:commandButton value="Удалить" action="#{usersListBean.delete}"/>
+            &nbsp;
+            <h:commandButton value="Отменить" action="#{usersListBean.cancel}"/>
+        </h4>
+    </center>
+    </h:form>
+</h:body>
+</html>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Добавление нового пользователя системы - ЖивоРост</title>
+</h:head>
+<h:body>
+    <h:form>
+        <center>
+            <table>
+                <tr>
+                    <td>
+                        <h4>Логин: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <h:inputText size="13" value="#{newUserBean.login}"/></h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Пароль: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <h:inputSecret size="13" value="#{newUserBean.password}"/></h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Подтверждение <br/> пароля: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <h:inputSecret size="13" value="#{newUserBean.confPassword}"/></h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Права администратора:
+                        <h:selectBooleanCheckbox value="#{newUserBean.isAdmin}"/>
+                        </h4>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5><h:commandButton value="Добавить" action="#{newUserBean.add}"/>
+                            &nbsp; &nbsp;
+                            <h:commandButton value="Отменить" action="#{newUserBean.cancel}"/>&nbsp;
+                        </h5>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4 style="color: red">
+                            <h:outputText value="#{newUserBean.error}"/>
+                        </h4>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </h:form>
+</h:body>
+</html>
